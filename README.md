@@ -23,7 +23,7 @@ An [MCP (Model Context Protocol)](https://modelcontextprotocol.io) server that l
 
 - Node.js >= 20
 - A Drime Cloud account
-- A Drime API token ([get one here](https://app.drime.cloud/settings/developers))
+- A Drime API token with appropriate access rights.
 
 ## Setup
 
@@ -120,9 +120,9 @@ npm run build
 ## Security
 
 - The API token is read from the `DRIME_API_TOKEN` environment variable — never hardcoded
+- Read-only mode is the default — writes stay disabled unless you explicitly set `DRIME_READ_ONLY=false` (any other value keeps the server read-only)
 - The token is validated on server startup (fails fast if invalid)
-- Use `DRIME_READ_ONLY=true` for read-only access (e.g., when connecting to untrusted agents)
-- Create a dedicated token with minimal permissions at [Drime Settings > Developers](https://app.drime.cloud/settings/developers)
+- Create a dedicated token with minimal permissions at Drime Settings > Developers.
 - Never commit your `.env` file or token to version control
 
 ## Architecture
